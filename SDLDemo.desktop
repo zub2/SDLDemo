@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=SDL demo
+Comment=SDL Test project
+Exec=sdl_demo
+Icon=media/SDLDemo.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true

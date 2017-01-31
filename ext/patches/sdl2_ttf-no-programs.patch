@@ -1,0 +1,18 @@
+diff -ru SDL2_ttf.orig/Makefile.am SDL2_ttf/Makefile.am
+--- SDL2_ttf.orig/Makefile.am	2017-02-05 20:50:08.000000000 +0100
++++ SDL2_ttf/Makefile.am	2017-02-05 21:54:04.296906786 +0100
+@@ -43,10 +43,10 @@
+ %.o : %.rc
+ 	$(WINDRES) $< $@
+ 
+-noinst_PROGRAMS = showfont glfont
+-
+-showfont_LDADD = libSDL2_ttf.la
+-glfont_LDADD = libSDL2_ttf.la @GL_LIBS@ @MATHLIB@
++#noinst_PROGRAMS = showfont glfont
++#
++#showfont_LDADD = libSDL2_ttf.la
++#glfont_LDADD = libSDL2_ttf.la @GL_LIBS@ @MATHLIB@
+ 
+ # Rule to build tar-gzipped distribution package
+ $(PACKAGE)-$(VERSION).tar.gz: distcheck

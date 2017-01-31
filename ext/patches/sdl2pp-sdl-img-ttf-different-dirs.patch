@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f539296..6e5fd67 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -27,7 +27,9 @@ ENDIF(CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
+ 
+ # depends
+ FIND_PACKAGE(SDL2 REQUIRED)
+-SET(SDL2_ALL_INCLUDE_DIRS ${SDL2_INCLUDE_DIR})
++# Add .. otherwise when SDL2_image or SDL2_ttf is installed in a different
++# directory its headers would not find SDL2.h (it uses #include "SDL.h").
++SET(SDL2_ALL_INCLUDE_DIRS ${SDL2_INCLUDE_DIR};${SDL2_INCLUDE_DIR}/SDL2)
+ SET(SDL2_ALL_LIBRARIES ${SDL2_LIBRARY})
+ SET(SDL2_ALL_PKGCONFIG_MODULES sdl2)
+ SET(SDL2PP_EXTRA_LIBRARIES ${SDL2MAIN_LIBRARY})

@@ -1,0 +1,15 @@
+{
+	"name": "zub.sdldemo",
+	"description": "Simple SDL project",
+	"architecture": "@CLICK_ARCH@",
+	"title": "SDLDemo",
+	"hooks": {
+		"SDLDemo": {
+			"apparmor": "SDLDemo.apparmor",
+			"desktop": "SDLDemo.desktop"
+		}
+	},
+	"version": "0.1",
+	"maintainer": "David Kozub <zub.272@gmail.com>",
+	"framework": "ubuntu-sdk-15.04.5"
+}
