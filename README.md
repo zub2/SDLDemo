@@ -22,7 +22,7 @@ Included are:
 * [SDL2pp](http://sdl2pp.amdmi3.ru/) (covered by a zlib-style license)
 * some simple demo code that uses all the libraries (covered by [CC0 1.0](http://creativecommons.org/publicdomain/zero/1.0/) to make it easy to use for any purpose)
 * some media files used by the demo to demonstrate font rendering and sound playback:
-   * [FreeSans](http://ftp.gnu.org/gnu/freefont/freefont-otf-20120503.tar.gz) font from [Gnu FreeFont](https://www.gnu.org/software/freefont/) (covered by [GNU GPLv3](http://www.gnu.org/licenses/))
+   * [FreeSans](http://ftp.gnu.org/gnu/freefont/freefont-otf-20120503.tar.gz) font from [Gnu FreeFont](https://www.gnu.org/software/freefont/) (covered by [GNU GPLv3](http://www.gnu.org/licenses/) or later)
    * [Blip C 02](http://www.freesound.org/people/cabled_mess/sounds/350864/) and [Lose C 02](http://www.freesound.org/people/cabled_mess/sounds/350985/) sounds by [cabled_mess](http://www.freesound.org/people/cabled_mess/) (covered by [CC0 1.0](http://creativecommons.org/publicdomain/zero/1.0/))
 
 Currently SDL revision 10349 is used (this is a revision between SDL versions 2.0.4 and 2.0.5). The reason for this is that this is the last revision that supports Mir 0.24 which is what is currently (February 2017) available for Ubuntu Phone. Newer revisions [don't build with Mir 0.24](https://hg.libsdl.org/SDL/rev/070fe7c1fc85). The Mir API is not too stable so when the Mir version changes a different SDL version likely needs to be used.
