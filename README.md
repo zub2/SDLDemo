@@ -69,6 +69,7 @@ These libraries are available on the phone but the SDK containers don't come wit
 
 ### Building the SDL2 Demo project
 With the prerequisites sorted out the rest is quite easy:
+
 1. Clone this project.
 1. Download the sources for external libraries. To do that, open a terminal, go to the root of the project and run `etc/download-dependencies.sh` (Alternatively, CMake could do this step automatically but this would mean mercurial and git need to be installed in the containers, plus making this step explicit hopefully spares some unnecessary re-downloading.)
 1. Start Ubuntu SDK and open the project. To do that, select the menu item _File_/_Open File or Project..._ and choose the `CMakeLists.txt` file in the root folder of the project. Select the kits you want. (You can select all kits for which you installed the necessary _-dev_ packages. Do _not_ select the kit named just _Desktop_. The kit _UbuntuSDK for desktop_ can be selected.)
