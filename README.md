@@ -49,33 +49,33 @@ There are some things that need to be done prior to actually building the projec
 * Install required development packages in each of the Ubuntu SDK containers.
 
 The following packages are needed:
-   * libpulse-dev (for audio support in SDL)
-   * libfreetype6-dev (for font rendering support in SDL_ttf)
-   * libboost-filesystem-dev and libboost-system-dev (used by the demo, not needed for SDL)
-   * (only for the desktop kit) libxi-dev if you want touch support
+* libpulse-dev (for audio support in SDL)
+* libfreetype6-dev (for font rendering support in SDL_ttf)
+* libboost-filesystem-dev and libboost-system-dev (used by the demo, not needed for SDL)
+* (only for the desktop kit) libxi-dev if you want touch support
 
 These libraries are available on the phone but the SDK containers don't come with the _-dev_ packages needed to use them installed. Nevertheless it is possible to install these via `apt`:
-   1) Start Ubuntu SDK IDE.
-   1) Select _Tools/Options..._ in the menu.
-   1) Select _Ubuntu_ in the list on the left-hand side.
-   1) Select tab _Click_.
-   1) Do the following for each configured kit:
-      1) Make sure it's up to date by clicking _Update_. Not all libraries were available in the original container versions.
-      1) Click _Maintain_. A terminal window pops up.
-      1) Run the following command:
-         * for _armhf_: `apt install libpulse-dev:armhf libfreetype6-dev:armhf libboost-filesystem-dev:armhf libboost-system-dev:armhf`
-         * for _i386_: `apt install libpulse-dev:i386 libfreetype6-dev:i386 libboost-filesystem-dev:i386 libboost-system-dev:i386`
-         * for _desktop_: `apt install libpulse-dev libfreetype6-dev libboost-filesystem-dev libboost-system-dev libxi-dev`
+1. Start Ubuntu SDK IDE.
+1. Select _Tools/Options..._ in the menu.
+1. Select _Ubuntu_ in the list on the left-hand side.
+1. Select tab _Click_.
+1. Do the following for each configured kit:
+   1. Make sure it's up to date by clicking _Update_. Not all libraries were available in the original container versions.
+   1. Click _Maintain_. A terminal window pops up.
+   1. Run the following command:
+      * for _armhf_: `apt install libpulse-dev:armhf libfreetype6-dev:armhf libboost-filesystem-dev:armhf libboost-system-dev:armhf`
+      * for _i386_: `apt install libpulse-dev:i386 libfreetype6-dev:i386 libboost-filesystem-dev:i386 libboost-system-dev:i386`
+      * for _desktop_: `apt install libpulse-dev libfreetype6-dev libboost-filesystem-dev libboost-system-dev libxi-dev`
 
 ### Building the SDL2 Demo project
 With the prerequisites sorted out the rest is quite easy:
-1) Clone this project.
-1) Download the sources for external libraries. To do that, open a terminal, go to the root of the project and run `etc/download-dependencies.sh` (Alternatively, CMake could do this step automatically but this would mean mercurial and git need to be installed in the containers, plus making this step explicit hopefully spares some unnecessary re-downloading.)
-1) Start Ubuntu SDK and open the project. To do that, select the menu item _File_/_Open File or Project..._ and choose the `CMakeLists.txt` file in the root folder of the project. Select the kits you want. (You can select all kits for which you installed the necessary _-dev_ packages. Do _not_ select the kit named just _Desktop_. The kit _UbuntuSDK for desktop_ can be selected.)
-1) Ubuntu SDK IDE runs CMake for the first selected kit. If the required _-dev_ packages were installed correctly, CMake should not produce an error message.
-1) Select the kit you want and build the project (_Build_/_Build Project "SDLDemo"_). This takes some time. You shoudl see the various libraries being built in the _Compile Output_ pane. This should eventually finish without any errors.
-1) Select the start up configuration: Click on the Ubuntu icon in the left bar of Ubuntu SDK IDE. In the menu that appears, in the rightmost column (_Run_), select _SDLDemo_. (This is the correct configuration that can be used to launch the application in either the emulator, on the local PC or on a real phone. The name comes from `mainfest.json.in`, from the hooks array. The other option there, _sdl_demo_, comes from the name of the actual CMake executable target and it's probably picked up by the default QtCreator CMake plugin. This configuration can't be used to launch the application in the emulator or on the phone.)
-1) Run, touch the window or click it with a mouse and enjoy. :)
+1. Clone this project.
+1. Download the sources for external libraries. To do that, open a terminal, go to the root of the project and run `etc/download-dependencies.sh` (Alternatively, CMake could do this step automatically but this would mean mercurial and git need to be installed in the containers, plus making this step explicit hopefully spares some unnecessary re-downloading.)
+1. Start Ubuntu SDK and open the project. To do that, select the menu item _File_/_Open File or Project..._ and choose the `CMakeLists.txt` file in the root folder of the project. Select the kits you want. (You can select all kits for which you installed the necessary _-dev_ packages. Do _not_ select the kit named just _Desktop_. The kit _UbuntuSDK for desktop_ can be selected.)
+1. Ubuntu SDK IDE runs CMake for the first selected kit. If the required _-dev_ packages were installed correctly, CMake should not produce an error message.
+1. Select the kit you want and build the project (_Build_/_Build Project "SDLDemo"_). This takes some time. You shoudl see the various libraries being built in the _Compile Output_ pane. This should eventually finish without any errors.
+1. Select the start up configuration: Click on the Ubuntu icon in the left bar of Ubuntu SDK IDE. In the menu that appears, in the rightmost column (_Run_), select _SDLDemo_. (This is the correct configuration that can be used to launch the application in either the emulator, on the local PC or on a real phone. The name comes from `mainfest.json.in`, from the hooks array. The other option there, _sdl_demo_, comes from the name of the actual CMake executable target and it's probably picked up by the default QtCreator CMake plugin. This configuration can't be used to launch the application in the emulator or on the phone.)
+1. Run, touch the window or click it with a mouse and enjoy. :)
 
 ## Tuning the SDL2 configuration
 The build for all the bundled libraries is configured in `ext/CMakeLists.txt`.
