@@ -33,7 +33,7 @@ If you run it you should see a black screen. If you touch the window anywhere an
 I currently don't have a device with X11 and touch so I have not tested touch with X11.
 
 ## Desktop Kit
-The desktop kit turns out to be a bit different from the other kits. For example Mir is not available. Another difference is that applications are not packaged prior to running them - the application is started directly form the CMake build directory. Then there are smaller differences like screen DPI and the fact that on the phone your application should be fullscreen while this may not be true on the desktop.
+The desktop kit turns out to be a bit different from the other kits. For example Mir is not available. Another difference is that applications are not packaged prior to running them - the application is started directly from the CMake build directory. Then there are smaller differences like screen DPI and the fact that on the phone your application should be fullscreen while this may not be true on the desktop.
 So in order to support build for the desktop kit the following important things must be handled:
 * build SDL2 with the X11 backed
 * let the C++ code know that this is a build for the desktop kit - this demo uses `HAVE_DESKTOP_KIT` define (see the top-level `CMakeLists.txt` and `src/CMakeLists.txt`)
@@ -55,6 +55,7 @@ The following packages are needed:
 * (only for the desktop kit) libxi-dev if you want touch support
 
 These libraries are available on the phone but the SDK containers don't come with the _-dev_ packages needed to use them installed. Nevertheless it is possible to install these via `apt`:
+
 1. Start Ubuntu SDK IDE.
 1. Select _Tools/Options..._ in the menu.
 1. Select _Ubuntu_ in the list on the left-hand side.
