@@ -83,4 +83,4 @@ With the prerequisites sorted out the rest is quite easy:
 The build for all the bundled libraries is configured in `ext/CMakeLists.txt`.
 
 ## License
-As already mentioned above, the code (including the actual C++ code of the demo and the CMake files) in this project is licensed under the [CC0 1.0](http://creativecommons.org/publicdomain/zero/1.0/) to make it easy to reuse in any way. But the actual libraries and the FreeSans font used in the projct come with licenses that are _not_ the CC0!
+As already mentioned above, the code (including the actual C++ code of the demo and the CMake files) in this project is licensed under the [CC0 1.0](http://creativecommons.org/publicdomain/zero/1.0/) to make it easy to reuse in any way. But the actual libraries and the FreeSans font used in the project come with licenses that are _not_ the CC0!
