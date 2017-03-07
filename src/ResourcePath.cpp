@@ -40,10 +40,10 @@ void initResourcePath()
 
 	resourcePathRoot = path(basePath) / "media";
 
-	std::cout << "Using resource base path: " << basePath << std::endl;
+	std::cout << "Using resource path root: " << resourcePathRoot << std::endl;
 }
 
-path getResourcePath(const std::string& component)
+path getResourcePath(const std::string& resource)
 {
-	return resourcePathRoot / component;
+	return resourcePathRoot / resource;
 }

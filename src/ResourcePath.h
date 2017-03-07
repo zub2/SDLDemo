@@ -19,6 +19,6 @@
 #include <boost/filesystem.hpp>
 
 void initResourcePath();
-boost::filesystem::path getResourcePath(const std::string& component);
+boost::filesystem::path getResourcePath(const std::string& resource);
 
 #endif // RESOURCE_PATH_H
