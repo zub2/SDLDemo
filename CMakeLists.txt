@@ -51,7 +51,7 @@ install(FILES
 	SDLDemo.apparmor
 	DESTINATION .
 )
-install(DIRECTORY "media" DESTINATION ${DATA_DIR} PATTERN "media/src/*" EXCLUDE)
+install(DIRECTORY "media" DESTINATION ${DATA_DIR} PATTERN "media/src" EXCLUDE)
 
 add_subdirectory(ext)
 add_subdirectory(src)
