@@ -9,7 +9,7 @@ There are at least the following SDL2 templates on Github: [ubuntu-touch-sdl-tem
 
 Included are the commonly used libraries SDL_image, SDL_ttf and SDL_mixer, and a C++ wrapper (I chose SDL2pp).
 
-I tuned the configuration of SDL and the other libraries to the Ubuntu Touch: Enabled are only the audio and video backends that are used on the system and e.g. Mir support is unconditional (no on-demand loading) because Mir is always available. It is possible to tune this further depending on your project's needs. You can for example disable unneeded subsystems. (See `etc/CMakeLists.txt`.)
+I tuned the configuration of SDL and the other libraries to the Ubuntu Touch: Enabled are only the audio and video backends that are used on the system and e.g. Mir support is unconditional (no on-demand loading) because Mir is always available. It is possible to tune this further depending on your project's needs. You can for example disable unneeded subsystems. (See `ext/CMakeLists.txt`.)
 
 Static libraries are built because using a shared library inside a click/snappy package doesn't make much sense (unless your package contains multiple executables that would share the library). This could have some licensing consequences but to the extent of my knowlegde ([IANAL](https://en.wiktionary.org/wiki/IANAL)) using statically-linked SDL in a GPLv2 or GPLv3 application is [allowed](https://choosealicense.com/licenses/zlib/).
 
@@ -72,9 +72,9 @@ These libraries are available on the phone but the SDK containers don't come wit
 With the prerequisites sorted out the rest is quite easy:
 
 1. Clone this project.
-1. Download the sources for external libraries. To do that, open a terminal, go to the root of the project and run `etc/download-dependencies.sh` (Alternatively, CMake could do this step automatically but this would mean mercurial and git need to be installed in the containers, plus making this step explicit hopefully spares some unnecessary re-downloading.)
+1. Download the sources for external libraries. To do that, open a terminal, go to the root of the project and run `ext/download-dependencies.sh` (Alternatively, CMake could do this step automatically but this would mean mercurial and git need to be installed in the containers, plus making this step explicit hopefully spares some unnecessary re-downloading.)
 1. Start Ubuntu SDK and open the project. To do that, select the menu item _File_/_Open File or Project..._ and choose the `CMakeLists.txt` file in the root folder of the project. Select the kits you want. (You can select all kits for which you installed the necessary _-dev_ packages. Do _not_ select the kit named just _Desktop_. The kit _UbuntuSDK for desktop_ can be selected.)
-1. Ubuntu SDK IDE runs CMake for the first selected kit. If the required _-dev_ packages were installed correctly, CMake should not produce an error message.
+1. Ubuntu SDK IDE runs CMake for the first selected kit. If the required _-dev_ packages were installed correctly, CMake should not produce any error message.
 1. Select the kit you want and build the project (_Build_/_Build Project "SDLDemo"_). This takes some time. You shoudl see the various libraries being built in the _Compile Output_ pane. This should eventually finish without any errors.
 1. Select the start up configuration: Click on the Ubuntu icon in the left bar of Ubuntu SDK IDE. In the menu that appears, in the rightmost column (_Run_), select _SDLDemo_. (This is the correct configuration that can be used to launch the application in either the emulator, on the local PC or on a real phone. The name comes from `mainfest.json.in`, from the hooks array. The other option there, _sdl_demo_, comes from the name of the actual CMake executable target and it's probably picked up by the default QtCreator CMake plugin. This configuration can't be used to launch the application in the emulator or on the phone.)
 1. Run, touch the window or click it with a mouse and enjoy. :)
